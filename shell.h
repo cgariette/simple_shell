@@ -11,5 +11,5 @@
 #include <string.h>
 
 int _putchar(char c);
-
+void _parse(char *str, char **args);
 #endif
