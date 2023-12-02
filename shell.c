@@ -17,7 +17,7 @@ int _prompt(void)
 	{
 		perror("Error");
 		free(buffer);
-		exit(EXIT_FAILURE);
+		return (-1);
 	}
 
 	free (buffer);
