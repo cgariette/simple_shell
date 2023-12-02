@@ -4,9 +4,9 @@
  * _prompt - prints a prompt
  *
  */
-void _prompt(void)
+int _prompt(void)
 {
-	size_t n = 10;
+	size_t n = 0;
 	char * buffer = NULL;
 	ssize_t line;
 
@@ -21,34 +21,39 @@ void _prompt(void)
 	}
 
 	free (buffer);
-
+	return (line);
 }
 
-void _parse(char *str, char **args)
+void _parse(char *str, char *delim)
 {
 	char *token;
 	int count;
-
-	token = strtok(str, " "); 
+	char *string = malloc(sizeof(char) * strlen(str));
+	
+	strcpy(string, str);
+	token = strtok(string, delim); 
 
 	while(token)
 	{
-		args[count++] = token;
 		printf("%s\n", token);
-		token = strtok(NULL, " ");
+		token = strtok(NULL, delim);
 	}
-	args[count] = NULL;
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
-	char *args[50];
+	/*char *args[50];*/
+	int i;
 
 	while (1)
 	{
 		_prompt();
-		_parse("simple shell", args);
+		while(argv[i] != NULL)
+		{
+			_parse(argv[i], " ");
+			i++;
+		}
 	}
 	return (0);
 }
