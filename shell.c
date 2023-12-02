@@ -49,11 +49,7 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		_prompt();
-		while(argv[i] != NULL)
-		{
-			_parse(argv[i], " ");
-			i++;
-		}
+		_parse("simple shell", " ");
 	}
 	return (0);
 }
