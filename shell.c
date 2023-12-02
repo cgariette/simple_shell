@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 void _parse(char *str, char *delim)
 {
 	char *token;
@@ -37,8 +36,7 @@ int main(int argc, char *argv[])
                 	exit(EXIT_FAILURE);
         	}
 
-        	_parse(buffer, " ");
-
+        	_parse(buffer," ");
 	}
         return (0);
 }
