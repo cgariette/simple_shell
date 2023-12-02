@@ -1,28 +1,5 @@
 #include "shell.h"
 
-/**
- * _prompt - prints a prompt
- *
- */
-int _prompt(void)
-{
-	size_t n = 0;
-	char * buffer = NULL;
-	ssize_t line;
-
-	_putchar('$');
-	line = getline(&buffer, &n, stdin);
-
-	if (line == -1)
-	{
-		perror("Error");
-		free(buffer);
-		return (-1);
-	}
-
-	free (buffer);
-	return (line);
-}
 
 void _parse(char *str, char *delim)
 {
@@ -43,17 +20,25 @@ void _parse(char *str, char *delim)
 
 int main(int argc, char *argv[])
 {
-	/*char *args[50];*/
-	int i;
+
+	size_t n = 0;
+        char * buffer = NULL;
+        ssize_t line;
 
 	while (1)
 	{
-		_prompt();
-		while(argv[i] != NULL)
-		{
-			_parse(argv[i], " ");
-			i++;
-		}
+        	_putchar('$');
+        	line = getline(&buffer, &n, stdin);
+
+        	if (line == -1)
+        	{
+                	perror("Error");
+                	free(buffer);
+                	exit(EXIT_FAILURE);
+        	}
+
+        	_parse(buffer, " ");
+
 	}
-	return (0);
+        return (0);
 }
