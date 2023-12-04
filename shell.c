@@ -26,7 +26,7 @@ int main(int argc, char **argv[])
 
 	while (1)
 	{
-        	_putchar('$');
+		_putchar('$');
         	line = getline(&buffer, &n, stdin);
 
         	if (line == -1)
@@ -36,7 +36,8 @@ int main(int argc, char **argv[])
                 	exit(EXIT_FAILURE);
         	}
 
-        	_parse(buffer," ");
+        	_parse(buffer," \n");
 	}
+	free(buffer);
         return (0);
 }
