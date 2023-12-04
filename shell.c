@@ -17,7 +17,7 @@ void _parse(char *str, char *delim)
 }
 
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv[])
 {
 
 	size_t n = 0;
