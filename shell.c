@@ -3,7 +3,7 @@
 void _parse(char *str, char *delim)
 {
 	char *token;
-	int count;
+	int count = 0;
 	char *string = malloc(sizeof(char) * strlen(str));
 	
 	strcpy(string, str);
@@ -11,9 +11,13 @@ void _parse(char *str, char *delim)
 
 	while(token)
 	{
+		count++;
 		printf("%s\n", token);
 		token = strtok(NULL, delim);
 	}
+	count++;
+
+
 }
 
 
