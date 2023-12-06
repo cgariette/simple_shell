@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int main(int argc, char **argv[])
+int main(int argc, char **argv)
 {
 	size_t n = 0;
 	char *token, *str, *buffer = NULL;
@@ -26,18 +26,20 @@ int main(int argc, char **argv[])
 	while(token)
 	{
 		count++;
-		printf("%s\n", token);
 		token = strtok(NULL, delim);
 	}
 	count++;
 
-	argv = malloc(sizeof(char)* count);
+	printf(">>>>> %d \n", count);
+
+	argv = malloc(sizeof(char *)* count);
 
 	while(token)	
 	{
 		argv[i] = malloc(sizeof(char)* strlen(token));
-		strcpy(*argv[i], token);
+		strcpy(argv[i], token);
 		i++;
+		printf(">>>>> %s \n", argv[i]);
 		token= strtok(NULL, delim);
 	}
 	argv[i] = NULL;
