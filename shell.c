@@ -36,7 +36,7 @@ int main(int argc, char **argv[])
 	while(token)	
 	{
 		argv[i] = malloc(sizeof(char)* strlen(token));
-		strcpy(argv[i], token);
+		strcpy(*argv[i], token);
 		i++;
 		token= strtok(NULL, delim);
 	}
