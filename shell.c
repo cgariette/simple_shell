@@ -26,10 +26,9 @@ int main(void)
 		while(token)
 		{
 			printf("%s\n", token);
-			token = strtok(NULL, delim);
 			argc++;
+			token = strtok(NULL, delim);
 		}
-
 		printf(">>>>> %d \n", argc);
 
 		argv = malloc(sizeof(char *) * argc);
@@ -42,10 +41,13 @@ int main(void)
 			count++;
 			token= strtok(NULL, delim);
 		}
+		printf("%d\n", count);
 		argv[count] = NULL;
+		argc = 0;
+		count = 0;
 
 	}
-	
+
 	free(str), free(string), free(argv);
         return (0);
 }
