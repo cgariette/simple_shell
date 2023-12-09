@@ -2,12 +2,13 @@
 
 int main(void)
 {
-	int argc = 0, count = 0;
+	int argc = 0, val, status;
 	size_t n = 0;
         ssize_t line;
 	char *str = NULL, *string = NULL, *token = NULL;
 	char *delim = " \n";
 	char **argv = NULL;
+	pid_t pid;
 
 	while (1)
 	{
@@ -22,32 +23,28 @@ int main(void)
 		}
 		string = strdup(str);
 		token = strtok(str, delim); 
+		argv = malloc(sizeof(char *) * argc);
 
 		while(token)
 		{
-			printf("%s\n", token);
+			argv[argc] = token;
 			argc++;
 			token = strtok(NULL, delim);
 		}
-		printf(">>>>> %d \n", argc);
+		argv[argc] = NULL;
+		pid = fork();
+		val = execve(argv[0], argv, NULL);
 
-		argv = malloc(sizeof(char *) * argc);
-		token = strtok(string, delim);
-
-		while(token)	
+		if (pid == 0)
 		{
-			argv[count] = token;
-			printf(">>>>> %s \n", argv[count]);
-			count++;
-			token= strtok(NULL, delim);
+			if(val == -1)
+				perror("Error");
 		}
-		printf("%d\n", count);
-		argv[count] = NULL;
+		else
+			wait(&status);
+
 		argc = 0;
-		count = 0;
-
 	}
-
-	free(str), free(string), free(argv);
+	free(argv);
         return (0);
 }
