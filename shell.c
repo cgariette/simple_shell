@@ -21,7 +21,7 @@ int main(void)
                 	free(str);
                 	return (-1);
 		}
-		string = strdup(str);
+		/*string = strdup(str);*/
 		token = strtok(str, delim); 
 		argv = malloc(sizeof(char *) * argc);
 
@@ -41,8 +41,9 @@ int main(void)
 				perror("Error");
 		}
 		else
+		{
 			wait(&status);
-
+		}
 		argc = 0;
 	}
 	free(argv);
