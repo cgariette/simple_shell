@@ -34,7 +34,7 @@ int main(void)
 		argv[argc] = NULL;
 		pid = fork();
 		
-		//execmd(argv);
+		execmd(argv);
 
 		if (pid == 0)
 		{
