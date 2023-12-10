@@ -33,12 +33,14 @@ int main(void)
 		}
 		argv[argc] = NULL;
 		pid = fork();
-		val = execve(argv[0], argv, NULL);
 		
 		if (pid == 0)
 		{
+			val = execve(argv[0], argv, NULL);
 			if(val == -1)
-			perror("Error");
+			{	
+				perror("Error");
+			}
 		}
 		else
 		{
