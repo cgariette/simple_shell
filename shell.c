@@ -35,6 +35,8 @@ int main(void)
 		pid = fork();
 		val = execve(argv[0], argv, NULL);
 		
+		//execmd(argv);
+
 		if (pid == 0)
 		{
 			if(val == -1)

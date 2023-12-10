@@ -1,7 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#define BUFF_SIZE 100
+#define BUFF_SIZE 1024
 
 #include <stdio.h>
 #include <unistd.h>
@@ -11,5 +11,6 @@
 #include <string.h>
 
 int _putchar(char c);
-
+void execmd(char **argv);
+char *get_path(char *cmd);
 #endif
