@@ -12,7 +12,7 @@ int main(void)
 
 	while (1)
 	{
-		_putchar('$');
+		write(1, "shell$ ", 7);
         	line = getline(&str, &n, stdin);
 
         	if (line == -1)
@@ -21,32 +21,29 @@ int main(void)
                 	free(str);
                 	return (-1);
 		}
-		/*string = strdup(str);*/
+		string = strdup(str);
 		token = strtok(str, delim); 
 		argv = malloc(sizeof(char *) * argc);
 
 		while(token)
 		{
 			argv[argc] = token;
-			pid = fork();
-			while(argv)
-		{
-			val = execve(argv[0], argv, NULL);
-
-			if (pid == 0)
-			{
-				if(val == -1)
-					perror("Error");
-			}
-			else
-			{
-				wait(&status);
-			}
-		}
 			argc++;
 			token = strtok(NULL, delim);
 		}
 		argv[argc] = NULL;
+		pid = fork();
+		val = execve(argv[0], argv, NULL);
+		
+		if (pid == 0)
+		{
+			if(val == -1)
+			perror("Error");
+		}
+		else
+		{
+			wait(&status);
+		}
 		argc = 0;
 		free(argv);
 	}
