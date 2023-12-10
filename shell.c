@@ -28,13 +28,8 @@ int main(void)
 		while(token)
 		{
 			argv[argc] = token;
-			argc++;
-			token = strtok(NULL, delim);
-		}
-		argv[argc] = NULL;
-		pid = fork();
-		
-		while(argv)
+			pid = fork();
+			while(argv)
 		{
 			val = execve(argv[0], argv, NULL);
 
@@ -48,6 +43,10 @@ int main(void)
 				wait(&status);
 			}
 		}
+			argc++;
+			token = strtok(NULL, delim);
+		}
+		argv[argc] = NULL;
 		argc = 0;
 		free(argv);
 	}
