@@ -33,19 +33,23 @@ int main(void)
 		}
 		argv[argc] = NULL;
 		pid = fork();
-		val = execve(argv[0], argv, NULL);
+		
+		while(argv)
+		{
+			val = execve(argv[0], argv, NULL);
 
-		if (pid == 0)
-		{
-			if(val == -1)
-				perror("Error");
-		}
-		else
-		{
-			wait(&status);
+			if (pid == 0)
+			{
+				if(val == -1)
+					perror("Error");
+			}
+			else
+			{
+				wait(&status);
+			}
 		}
 		argc = 0;
+		free(argv);
 	}
-	free(argv);
         return (0);
 }
