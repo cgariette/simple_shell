@@ -10,7 +10,7 @@ int main(void)
 	int argc = 0, val, status;
 	size_t n = 0;
 	ssize_t line;
-	char *str = NULL, *string = NULL;
+	char *str = NULL;
 	char **argv = NULL;
 	pid_t pid;
 
@@ -25,7 +25,7 @@ int main(void)
 			free(str);
 			return (-1);
 		}
-		string = strdup(str);
+		
 		argv = malloc(sizeof(char *) * argc);
 		_token(str, argv, argc);
 
