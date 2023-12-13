@@ -12,7 +12,7 @@ int main(void)
 	ssize_t line;
 	char *str = NULL;
 	char **argv = NULL;
-	char *name = "exit";
+	char *name = "exit\n";
 	int compare;
 
 	while (1)
@@ -21,16 +21,18 @@ int main(void)
 		line = getline(&str, &n, stdin);
 		compare = strcmp(str, name);
 
-		if (line == -1 || compare != 0)
+		if (line == -1 || compare == 0)
 		{
-			perror("Exiting");
+			perror("Existing");
 			free(str);
 			return (-1);
 		}
-
-		argv = malloc(sizeof(char *) * argc);
-		_token(str, argv, argc);
-		_getpath(argc, argv);
+		else
+		{
+			argv = malloc(sizeof(char *) * argc);
+			_token(str, argv, argc);
+			_getpath(argc, argv);
+		}
 		argc = 0;
 		free(argv);
 	}
