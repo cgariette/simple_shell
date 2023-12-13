@@ -14,6 +14,6 @@
 int _putchar(char c);
 void _token(char *str, char **argv, int argc);
 void _execute(char **argv);
-void _getpath(char **argv);
+void _getpath(int argc, char **argv);
 
 #endif

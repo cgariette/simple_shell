@@ -1,19 +1,17 @@
 #include "shell.h"
 
-void _getpath(char **argv)
+void _getpath(int argc, char **argv)
 {
-	unsigned int i;
 	struct stat st;
 	int path;
 	
-	i = 1;
-	while(argv[i])
+	while(argv[argc] != NULL)
 	{
-		path = stat(argv[i], &st);
+		path = stat(argv[argc], &st);
 		if (path == 0)
 			_execute(argv);
 		else
-			write(1, "./shell: No such file or directory\n", 34);
-		i++;
+			write(1, "./shell: No such file or directory\n", 36);
+		argc++;
 	}
 }

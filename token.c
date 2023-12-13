@@ -7,7 +7,6 @@
  * @argc: number of arguments
  * Return: NOTHING
  */
-
 void _token(char *str, char **argv, int argc)
 {
 	char *token = strtok(str, " \n");
