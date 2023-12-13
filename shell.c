@@ -23,7 +23,7 @@ int main(void)
 
 		if (line == -1 || compare == 0)
 		{
-			perror("Existing");
+			perror("Exiting");
 			free(str);
 			return (-1);
 		}
