@@ -33,8 +33,11 @@ int main(void)
 			_token(str, argv, argc);
 			_getpath(argc, argv);
 			argc = 0;
-			free(argv);
-		}
+			}
+	
 	}
+	
+	free(argv);
+	free(str);
 	return (0);
 }
