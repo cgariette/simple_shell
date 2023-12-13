@@ -24,7 +24,7 @@ int main(void)
 			free(str);
 			return (-1);
 		}
-		
+
 		argv = malloc(sizeof(char *) * argc);
 		_token(str, argv, argc);
 		_execute(argv);

@@ -12,7 +12,6 @@ void _execute(char **argv)
 	int val, status;
 
 	pid = fork();
-	
 	if (pid == 0)
 	{
 		val = execve(argv[0], argv, NULL);
