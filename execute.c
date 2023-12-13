@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * _execute - executes the commands
+ * @argv: arguments given
+ * Return: Nothing
+ */
+
 void _execute(char **argv)
 {
 	pid_t pid;
