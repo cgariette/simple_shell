@@ -9,13 +9,13 @@
 void _execute(char **argv)
 {
 	pid_t pid;
-	int val, status, argc;
-	char env;
+	int val, status;
+	extern char **environ;
+
 	pid = fork();
 	if (pid == 0)
 	{
-		env = _getpath(argc, argv);
-		val = execve(argv[0], argv, env);
+		val = execve(argv[0], argv, environ);
 		if (val == -1)
 			perror("Error");
 	}
