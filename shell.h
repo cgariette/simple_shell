@@ -12,6 +12,6 @@
 #include <sys/stat.h>
 
 int _putchar(char c);
-void execmd(char **argv);
+void _token(char *str, char **argv, int argc);
 char *get_path(char *cmd);
 #endif
