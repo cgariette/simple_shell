@@ -12,15 +12,18 @@ int main(void)
 	ssize_t line;
 	char *str = NULL;
 	char **argv = NULL;
+	char *name = "exit";
+	int compare;
 
 	while (1)
 	{
 		write(1, "shell$ ", 7);
 		line = getline(&str, &n, stdin);
+		compare = strcmp(str, name);
 
-		if (line == -1)
+		if (line == -1 || compare != 0)
 		{
-			perror("Error");
+			perror("Exiting");
 			free(str);
 			return (-1);
 		}
