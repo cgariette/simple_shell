@@ -1,11 +1,18 @@
 #include "shell.h"
 
+/**
+ * _getpath - get thepath
+ * @argc: number of arguments
+ * @argv: the arguments
+ * Return: nothing
+ */
+
 void _getpath(int argc, char **argv)
 {
 	struct stat st;
 	int path;
-	
-	while(argv[argc] != NULL)
+
+	while (argv[argc] != NULL)
 	{
 		path = stat(argv[argc], &st);
 		if (path == 0)
