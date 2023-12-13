@@ -13,5 +13,6 @@
 
 int _putchar(char c);
 void _token(char *str, char **argv, int argc);
+void _execute(char **argv);
 char *get_path(char *cmd);
 #endif

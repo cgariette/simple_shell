@@ -7,12 +7,11 @@
 
 int main(void)
 {
-	int argc = 0, val, status;
+	int argc = 0;
 	size_t n = 0;
 	ssize_t line;
 	char *str = NULL;
 	char **argv = NULL;
-	pid_t pid;
 
 	while (1)
 	{
@@ -28,18 +27,7 @@ int main(void)
 		
 		argv = malloc(sizeof(char *) * argc);
 		_token(str, argv, argc);
-
-		pid = fork();
-		if (pid == 0)
-		{
-			val = execve(argv[0], argv, NULL);
-			if (val == -1)
-				perror("Error");
-		}
-		else
-		{
-			wait(&status);
-		}
+		_execute(argv);
 		argc = 0;
 		free(argv);
 	}
