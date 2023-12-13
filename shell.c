@@ -32,9 +32,9 @@ int main(void)
 			argv = malloc(sizeof(char *) * argc);
 			_token(str, argv, argc);
 			_getpath(argc, argv);
+			argc = 0;
+			free(argv);
 		}
-		argc = 0;
-		free(argv);
 	}
 	return (0);
 }
