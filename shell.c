@@ -24,7 +24,6 @@ int main(void)
 		if (line == -1 || compare == 0)
 		{
 			perror("Exiting");
-			free(str);
 			return (-1);
 		}
 		else
