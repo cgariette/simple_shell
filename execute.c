@@ -22,4 +22,3 @@ void _execute(char **argv)
 	else
 		wait(&status);
 	}
-	}
