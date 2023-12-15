@@ -9,7 +9,7 @@
 void _execute(char **argv)
 {
 	pid_t pid;
-	int val, status, argc;
+	int val, status;
 	extern char **environ;
 
 	pid = fork();
